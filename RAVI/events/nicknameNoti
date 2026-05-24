@@ -1,0 +1,24 @@
+module.exports = {
+  config: {
+    name: "nicknameNoti",
+    eventType: ["log:user-nickname"],
+    version: "1.0.0",
+    credits: "RK Prajapat",
+    description: "Nickname change hone par alert"
+  },
+  onStart: async function({ api, event }) {
+    const { threadID, logMessageData, author } = event;
+    const { participantId, nickname } = logMessageData;
+    
+    api.getUserInfo(author, (err, authInfo) => {
+      const changerName = authInfo[author].name;
+      const setupNickname = nickname || "Purana Name";
+      
+      if (participantId == api.getCurrentUserID()) {
+        return api.sendMessage(`⚠️ Alert: ${changerName} ne mera nickname badal kar "${setupNickname}" kar diya hai! 🤔`, threadID);
+      } else {
+        return api.sendMessage(`📝 ${changerName} ne kisi ka nickname badal kar "${setupNickname}" set kiya.`, threadID);
+      }
+    });
+  }
+};
