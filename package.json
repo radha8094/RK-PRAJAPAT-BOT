@@ -1,16 +1,9 @@
 {
-  "name": "rk-prajapat-bot",
-  "version": "1.0.0",
-  "description": "Official Messenger Bot by RK Prajapat",
+  "name": "fca-rk-prajapat",
+  "version": "21.0.0",
   "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
-  },
-  "author": "RK Prajapat",
-  "license": "MIT",
   "dependencies": {
-    "fca-rk-prajapat": "^1.0.1",
-    "express": "^4.19.2",
-    "npmlog": "^7.0.1"
+    "fca-priyansh": "^21.0.0"
   }
 }
+
